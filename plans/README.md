@@ -1,0 +1,24 @@
+# nvke contribution plans — index
+
+> **Latest: round 1 — 2026-11-11.** Repo profiled, tooling ported, 17 of 110 unassigned issues
+> screened. **No plan written** — nothing screened is verified actionable for code. One comment
+> drafted (#2022), unposted. See `../COVERAGE.md` before treating the list below as available work.
+
+## Ranked candidates
+
+| # | Issue | Deliverable | Plan | Status |
+|---|---|---|---|---|
+| 1 | [#2022](https://github.com/dsx-ai-factory/nvke/issues/2022) `dsx.Decode` accepts two datahalls sharing one API endpoint | **comment** → small PR after #2072 | [drafts/comment-2022-duplicate-endpoint-check.md](../drafts/comment-2022-duplicate-endpoint-check.md) | 🟡 entangled (light) with PR #2072; no claim on the issue; ~10-line fix + table test |
+| 2 | [#1177](https://github.com/dsx-ai-factory/nvke/issues/1177) providers: CONFIGURED doesn't prove the provider works | **comment** (only if useful) | _not written_ | 🚩 needs a Product ruling (absent provider → hard create error?) |
+
+## Ruled out in round 1
+
+Taken / adjacent PR: ~~#609~~ ~~#707~~ ~~#1369~~ ~~#1957~~ ~~#2002~~ ~~#2058~~ ~~#2067~~
+~~#2264~~ ~~#2268~~ ~~#2248~~ ~~#2136~~; unverified-adjacent (`TAKEN?`): #1242 #2263 #2265 #2021.
+Reasons: `../tools/known-taken.txt`.
+
+## Run changelog
+
+| Run | Date | What |
+|---|---|---|
+| 1 | 2026-11-11 | Bootstrap: study repo, tools ported (3 bugs, see `../tools/README.md`), facts probed at `487f5110`, 17 issues screened, loop wired. |

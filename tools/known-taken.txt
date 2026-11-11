@@ -1,0 +1,37 @@
+# Issues confirmed TAKEN / DONE / BLOCKED / OBSOLETE by manual screening.
+# Feed to screen-issues.sh via --skip-taken so runs stop re-planning settled ground.
+# Format: <issue-number>  # <CATEGORY> <date>: reason
+# Continuation lines MUST be indented and start with '#' (the --skip-taken regex is
+# ^[[:space:]]*<N>([[:space:]]|#|$), so a continuation starting with a digit would
+# be misread as an issue number).
+#
+# Re-check periodically: a blocking PR can be closed without merging. This repo merges
+# ~11 PRs/day, so any verdict older than a week must be re-verified with pr-index.sh.
+
+# ---- round 1, 2026-11-11, upstream 487f5110 ----
+# TAKEN = open PR whose body carries a closing keyword for the issue (or a /assign claim).
+609    # TAKEN 2026-11-11: PR #2231 (ssthormess) fixes it, closing keyword.
+707    # TAKEN 2026-11-11: PR #2234 (Mohammad-Maraqa), closing keyword.
+1369   # TAKEN 2026-11-11: PR #2015 (tjrasche), DRAFT, closing keyword. A draft can stall -- re-look in ~2 weeks.
+1957   # TAKEN 2026-11-11: PR #1972 (abhay-krishna), closing keyword.
+2002   # TAKEN 2026-11-11: PR #2004 (fidencio) closing keyword; #1839 is adjacent, not the fix.
+2058   # TAKEN 2026-11-11: PR #2246 (atishay-kasliwal), closing keyword, plus "I'd like to take" comment.
+2067   # TAKEN 2026-11-11: PR #2184 (danbudris), DRAFT, closing keyword.
+2264   # TAKEN 2026-11-11: PR #2272 (shounakjoshi88-a11y), closing keyword, "Working on this" comment.
+2268   # TAKEN 2026-11-11: PR #2275 (wanjinhao1), closing keyword.
+2248   # TAKEN 2026-11-11: /assign + scope agreed with triager glaguteta; docs change to CONTRIBUTING.md prerequisites.
+2136   # TAKEN 2026-11-11: claim wording ("ill pick") in comments -- claimant and recency NOT read. Verify before treating as free.
+# TAKEN? = only a topic-adjacent open PR, no closing keyword; the PR diff has NOT been read.
+1242   # TAKEN? 2026-11-11: PR #2164 "version and release every component by the bare vX.Y.Z tag" overlaps the title; no closing keyword.
+2263   # TAKEN? 2026-11-11: PR #2279 (ssthormess) is on topic (stop re-probes), no closing keyword.
+2265   # TAKEN? 2026-11-11: PRs #2272 and #2279 both cross-reference; neither closes it by keyword.
+2021   # TAKEN? 2026-11-11: PR #2045 (lia-campbell) loads the stack config / Secrets; relation to the OAuth branch unverified.
+# ENTANGLED / NEEDS-RULING
+2022   # ENTANGLED-LIGHT 2026-11-11: confirmed bug P2 (jedimt triage), fix recipe given, 0 PRs closing it. Open PR #2072 (xdu31, the issue author)
+       # is the "second site lands" moment (jedimt: check should go "with it or right after"). READ #2072's diff: it adds NO duplicate-endpoint
+       # check; its environment.go change is a comment rename (datahall-1 -> site-1) but it renames datahall -> site-N keys in shipped_test.go
+       # and environments/dsx.yaml, so a fix written now must be rebased onto it. Deliverable = comment asking xdu31 whether it goes into #2072;
+       # otherwise take it as a follow-up after #2072 merges. No claim comment exists on #2022.
+1177   # NEEDS-RULING 2026-11-11: bullet 1 shipped (#1602). Part A "reject create when provider absent" changes API behaviour (201 -> error);
+       # triager asked Product to rule and to narrow the title. Part B (CRD watch) is size M. Do not code before a Product answer.
+# Maintainer batches -- one owner's plan, do not screen as free issues without reading the owner's note.
