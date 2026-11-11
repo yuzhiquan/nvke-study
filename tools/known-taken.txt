@@ -20,7 +20,7 @@
 2264   # TAKEN 2026-11-11: PR #2272 (shounakjoshi88-a11y), closing keyword, "Working on this" comment.
 2268   # TAKEN 2026-11-11: PR #2275 (wanjinhao1), closing keyword.
 2248   # TAKEN 2026-11-11: /assign + scope agreed with triager glaguteta; docs change to CONTRIBUTING.md prerequisites.
-2136   # TAKEN 2026-11-11: claim wording ("ill pick") in comments -- claimant and recency NOT read. Verify before treating as free.
+2136   # FREE 2026-11-11 (corrects round 1): the claims regex matched "A maintainer will pick one" in jedimt's triage, not a contributor claim. Bug P2, no PR (pr-index --grep clean), design choice pending a maintainer. See plans/README.md.
 # TAKEN? = only a topic-adjacent open PR, no closing keyword; the PR diff has NOT been read.
 1242   # TAKEN? 2026-11-11: PR #2164 "version and release every component by the bare vX.Y.Z tag" overlaps the title; no closing keyword.
 2263   # TAKEN? 2026-11-11: PR #2279 (ssthormess) is on topic (stop re-probes), no closing keyword.
