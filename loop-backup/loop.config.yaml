@@ -1,0 +1,76 @@
+# loop-kit config — the per-repo facts for dsx-ai-factory/nvke.
+# Local only: excluded via .git/info/exclude so it never enters an upstream PR.
+# Backed up by copying the important parts into ~/source/nvke-study.
+#
+# Screening discipline: ~/source/nvke-study/RESEARCH-WORKFLOW.md. Read it before changing
+# `actionability` or the screening notes. Every rule there came from a real false positive.
+
+# The UPSTREAM slug, not the fork (origin is yuzhiquan/nvke).
+repo: dsx-ai-factory/nvke
+
+discovery: github-issues
+
+# Open unassigned issues: 110 on 2026-11-11. Round 1 screened 17.
+issues_to_check: 40
+
+# Real commands, verified 2026-11-11 on this machine (GNU Make 3.81, no flox, no golangci-lint
+# on PATH). The root Makefile needs GNU Make >= 4, so `make preflight` / `make build` / `make test`
+# at the root are NOT runnable here; use the per-module Makefiles, which work with either.
+#   verified:  make -C auth test   (pass, ~10s)    make -C auth lint (0 issues, ~30s cold)
+#              go build ./... in auth/  (ok)
+#   NOT verified here: make -C controller ..., make -C cli ... (not run in round 1)
+#   e2e / qualify / Forge / image builds cannot run locally; CI is the verifier.
+commands:
+  lint:  "make -C <module> lint"
+  test:  "make -C <module> test"
+  build: "cd <module> && go build ./..."
+
+# What "actionable in THIS repo" means.
+actionability: >
+  Go code in controller/internal, agent/internal|pkg, cli/, auth/, management-engine/,
+  cluster-api-provider-provisioned/, release/, and docs/. A good candidate is a clear bug
+  (or a small self-contained change) with a concrete file:line anchor and a test runnable via
+  `make -C <module> test`, in an issue that a triager has labelled (priority/P*, area/*)
+  and that no open PR touches.
+
+  Skip, and Park with the reason:
+    - anything with a PR that cross-references it (read the PR diff; closing keyword = TAKEN,
+      topic-adjacent without keyword = TAKEN?);
+    - issues under ~3 days old: maintainers file an issue and open the fix within hours
+      (#2263/#2264/#2265/#2268 had PRs the day they were filed);
+    - maintainer batches / epics (28 os-image issues #2195-#2221 under epic #2194; the 2026-11-10
+      danbudris batch): one owner's plan, Park the batch;
+    - `feature` issues still `needs-triage`, and anything awaiting a Product ruling (#1177);
+    - roadmap/exploring and [NVKEP] threads: the deliverable is a comment, not code;
+    - changes that need e2e, Forge/NICo hardware, image builds or the secrets-gated lanes to
+      prove (R6: not testable here);
+    - changes to generated output without a source edit + regenerate step;
+    - blocked on another repo (cluster-api-provider-nico, NVKR, AICR) -- follow the link and
+      record its current state.
+
+  Prefer: maintainer-filed + old + unclaimed > bug with a verified file:line > docs with a
+  written scope. Ranking by priority/P* alone is wrong here: it measures the team's urgency,
+  not our availability. Deliverable is often a comment.
+
+screening:
+  known_taken: ~/source/nvke-study/tools/known-taken.txt
+  pr_index: ~/source/nvke-study/tools/pr-index.sh
+  screen_issues: ~/source/nvke-study/tools/screen-issues.sh
+  claims: ~/source/nvke-study/tools/claims.sh
+  # The four availability rules (each from a real false positive on agent-sandbox):
+  #   R1 cross-referenced timeline PRs -- READ them, closing keyword or not
+  #   R2 the LAST comment, not the metadata
+  #   R3 the BODY, for author self-implementation ("willing to contribute" is a FORM FIELD on nvke)
+  #   R4 EVERY comment, for PR announcements and maintainer rulings
+  # Evidence weight: body/title refs strong, branch refs weak.
+  # nvke speed: 150 merges/14d. A verdict older than a day or two must be re-verified.
+
+caps:
+  # 80, not 30: on agent-sandbox 30 turns produced zero output on five rounds. Not yet measured
+  # on nvke -- if a round leaves .loop/state.md unchanged, that is the cap, not "nothing to report".
+  max_turns: 80
+  # Cadence: every 6h = 4 rounds/day (+2 manual). nvke merges ~45 PRs per 6h, so each round must
+  # re-run pr-index --no-cache. Revisit if rounds keep finding everything taken.
+  max_runs_per_day: 6
+
+candidates_per_round: 3
