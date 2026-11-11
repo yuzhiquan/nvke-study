@@ -5,6 +5,7 @@ Comments written but **not yet posted**, so a session restart doesn't lose them.
 | Target | File | State |
 |---|---|---|
 | issue #2022 | [comment-2022-duplicate-endpoint-check.md](comment-2022-duplicate-endpoint-check.md) | drafted 2026-11-11, unposted |
+| issue #2136 | [comment-2136-pick-an-option.md](comment-2136-pick-an-option.md) | drafted 2026-11-11, unposted |
 
 Before posting any draft:
 

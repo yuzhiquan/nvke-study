@@ -17,6 +17,8 @@ _None yet._ Round 1 (bootstrap) found no candidate verified actionable for code.
 
 - **#2022** -- DONE: our PR #2282 is open (closes it); comment posted. Do not re-propose.
 
+- **#2136** nico-sim imageFs stats (P2 bug) -- FREE, waiting on a maintainer to pick a fix option. Draft comment: `~/source/nvke-study/drafts/comment-2136-pick-an-option.md`. (Round 0 marked it TAKEN: regex false positive.)
+
 ## Parked
 - **#1177** providers: CONFIGURED doesn't prove the provider works -- bullet 1 shipped in #1602; the rest
   needs a Product ruling (absent provider -> hard create error?). Re-look when a Product answer appears.

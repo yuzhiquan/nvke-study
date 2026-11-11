@@ -28,6 +28,10 @@ _Last updated 2026-11-11, end of bootstrap round 1. Upstream `dsx-ai-factory/nvk
    targets `make -C <module> lint test`.
 4. ~~study repo remote~~ pushed to `yuzhiquan/nvke-study` (**public**; consider making it private). Refresh `loop-backup/` after each loop round.
 
+## Next candidate
+
+- **#2136** (nico-sim imageFs stats): free, waiting on a maintainer's choice. Plan: `plans/issue-2136-nico-sim-fuse-overlayfs.md`; comment drafted in `drafts/`, unposted.
+
 ## Next steps (round 2)
 
 See `COVERAGE.md` § Sweep order. Start by `git fetch upstream` and `tools/pr-index.sh --no-cache`.

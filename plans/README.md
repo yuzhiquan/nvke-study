@@ -9,7 +9,8 @@
 | # | Issue | Deliverable | Plan | Status |
 |---|---|---|---|---|
 | 1 | [#2022](https://github.com/dsx-ai-factory/nvke/issues/2022) `dsx.Decode` accepts two datahalls sharing one API endpoint | **PR** | [drafts/patch-2022-reject-shared-endpoints.diff](../drafts/patch-2022-reject-shared-endpoints.diff) | ✅ **[PR #2282](https://github.com/dsx-ai-factory/nvke/pull/2282) opened 2026-11-11**, comment posted on the issue; awaiting review |
-| 2 | [#1177](https://github.com/dsx-ai-factory/nvke/issues/1177) providers: CONFIGURED doesn't prove the provider works | **comment** (only if useful) | _not written_ | 🚩 needs a Product ruling (absent provider → hard create error?) |
+| 2 | [#2136](https://github.com/dsx-ai-factory/nvke/issues/2136) nico-sim container nodes fail kubelet imageFs stats (fuse-overlayfs) | **comment** → small PR | [issue-2136-nico-sim-fuse-overlayfs.md](issue-2136-nico-sim-fuse-overlayfs.md) | 🟡 FREE (round-1 TAKEN verdict was a regex false positive); 🚩 waiting on a maintainer to pick fix option; comment drafted, unposted |
+| 3 | [#1177](https://github.com/dsx-ai-factory/nvke/issues/1177) providers: CONFIGURED doesn't prove the provider works | **comment** (only if useful) | _not written_ | 🚩 needs a Product ruling (absent provider → hard create error?) |
 
 ## Ruled out in round 1
 
