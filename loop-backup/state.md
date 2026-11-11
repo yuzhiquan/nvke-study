@@ -15,10 +15,7 @@ _None yet._ Round 1 (bootstrap) found no candidate verified actionable for code.
 
 ## Comment-sized candidates (not yet through the skeptic)
 
-- **#2022** `dsx.Decode accepts two datahalls sharing one API endpoint` -- confirmed bug, P2, fix recipe
-  given by triager jedimt, no PR closes it. Open PR #2072 (same author) renames `datahall`->`site-N`
-  and adds **no** duplicate check (diff read 2026-11-11). Draft comment (unposted):
-  `~/source/nvke-study/drafts/comment-2022-duplicate-endpoint-check.md`.
+- **#2022** -- DONE: our PR #2282 is open (closes it); comment posted. Do not re-propose.
 
 ## Parked
 - **#1177** providers: CONFIGURED doesn't prove the provider works -- bullet 1 shipped in #1602; the rest

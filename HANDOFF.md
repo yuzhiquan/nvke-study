@@ -4,35 +4,34 @@ _Last updated 2026-11-11, end of bootstrap round 1. Upstream `dsx-ai-factory/nvk
 
 ## State
 
-- Study repo built (`~/source/nvke-study`, local git repo, **no GitHub remote yet**).
+- Study repo built (`~/source/nvke-study`, pushed to `yuzhiquan/nvke-study`).
 - Tools ported and smoke-tested (`tools/README.md` § Porting notes).
 - 17 of 110 unassigned issues screened (15%). **0 verified actionable for code.**
   Two comment-sized candidates: #2022 (draft in `drafts/`, unposted) and #1177 (needs Product).
 - Loop wired in `~/source/nvke`: `loop.config.yaml`, `.loop/state.md`, `.loop/loop-run.sh`
   (all git-excluded via `.git/info/exclude`). See "Loop" below for what has/hasn't been run.
 
-## Nothing is in flight upstream
+## In flight upstream
 
-No branch, PR or comment has been created. `origin` = `yuzhiquan/nvke` fork (untouched).
+- **PR [#2282](https://github.com/dsx-ai-factory/nvke/pull/2282)** `fix(e2e): reject two dsx sites that share an api endpoint`, closes #2022. Branch `fix/reject-shared-dsx-endpoints` on the fork, 1 signed (DCO + SSH-verified) commit. Comment posted on #2022. Worktree `/tmp/nvke-2022` (disposable; the patch is in `drafts/`).
+- Watch: review, `/ok to test` (`needs-ok-to-test`), CodeRabbit, and whether #2072 merges first (patch applies on top of it).
+- Not run for this PR: `make preflight` (Make 3.81) and e2e lanes; the PR body says so.
 
 ## Do these before the first PR
 
-1. **Commit signing.** `main` requires verified signatures and DCO. `commit.gpgsign` is unset.
-   Register a GPG/SSH signing key on the `yuzhiquan` GitHub account, then in `~/source/nvke`:
-   `git config commit.gpgsign true`. Without it the PR is blocked at the merge box.
+1. ~~Commit signing~~ **done 2026-11-11.** Key `~/.ssh/id_ed25519_yuzhiquan_signing` (no passphrase) registered as a *signing* key on `yuzhiquan`; `~/source/nvke` has `gpg.format=ssh`, `commit.gpgsign=true`. GitHub reports commits as Verified.
 2. **`origin` SSH host.** `~/source/nvke` `origin` is `git@github.com:yuzhiquan/nvke.git`. Per the
    account rules `yuzhiquan` pushes use `git@github.com-yzq:…`; the default host authenticates as
    `yuzhiquantubi`. I tried to repoint it during bootstrap and was denied — **your call**:
    `git -C ~/source/nvke remote set-url origin git@github.com-yzq:yuzhiquan/nvke.git`.
 3. **GNU Make ≥ 4** (`brew install make` → `gmake`) to run `make preflight`; or run the module
    targets `make -C <module> lint test`.
-4. **Create the study repo's remote** (private): `git@github.com-yzq:yuzhiquan/nvke-study.git`, then
-   push. `.loop/state.md` is not otherwise backed up.
+4. ~~study repo remote~~ pushed to `yuzhiquan/nvke-study` (**public**; consider making it private). Refresh `loop-backup/` after each loop round.
 
 ## Next steps (round 2)
 
 See `COVERAGE.md` § Sweep order. Start by `git fetch upstream` and `tools/pr-index.sh --no-cache`.
-Read #2072's current diff before posting the #2022 comment.
+Check #2282's review state first (`gh pr view 2282 --repo dsx-ai-factory/nvke`).
 
 ## Gotchas
 

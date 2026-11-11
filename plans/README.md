@@ -8,7 +8,7 @@
 
 | # | Issue | Deliverable | Plan | Status |
 |---|---|---|---|---|
-| 1 | [#2022](https://github.com/dsx-ai-factory/nvke/issues/2022) `dsx.Decode` accepts two datahalls sharing one API endpoint | **comment** → small PR after #2072 | [drafts/comment-2022-duplicate-endpoint-check.md](../drafts/comment-2022-duplicate-endpoint-check.md) | 🟡 entangled (light) with PR #2072; no claim on the issue; ~10-line fix + table test |
+| 1 | [#2022](https://github.com/dsx-ai-factory/nvke/issues/2022) `dsx.Decode` accepts two datahalls sharing one API endpoint | **PR** | [drafts/patch-2022-reject-shared-endpoints.diff](../drafts/patch-2022-reject-shared-endpoints.diff) | ✅ **[PR #2282](https://github.com/dsx-ai-factory/nvke/pull/2282) opened 2026-11-11**, comment posted on the issue; awaiting review |
 | 2 | [#1177](https://github.com/dsx-ai-factory/nvke/issues/1177) providers: CONFIGURED doesn't prove the provider works | **comment** (only if useful) | _not written_ | 🚩 needs a Product ruling (absent provider → hard create error?) |
 
 ## Ruled out in round 1
@@ -21,4 +21,5 @@ Reasons: `../tools/known-taken.txt`.
 
 | Run | Date | What |
 |---|---|---|
-| 1 | 2026-11-11 | Bootstrap: study repo, tools ported (3 bugs, see `../tools/README.md`), facts probed at `487f5110`, 17 issues screened, loop wired. |
+| 1 | 2026-11-11 | Opened PR #2282 for #2022 (first contribution). |
+| 0 | 2026-11-11 | Bootstrap: study repo, tools ported (3 bugs, see `../tools/README.md`), facts probed at `487f5110`, 17 issues screened, loop wired. |

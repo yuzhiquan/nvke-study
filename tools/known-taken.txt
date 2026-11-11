@@ -27,11 +27,8 @@
 2265   # TAKEN? 2026-11-11: PRs #2272 and #2279 both cross-reference; neither closes it by keyword.
 2021   # TAKEN? 2026-11-11: PR #2045 (lia-campbell) loads the stack config / Secrets; relation to the OAuth branch unverified.
 # ENTANGLED / NEEDS-RULING
-2022   # ENTANGLED-LIGHT 2026-11-11: confirmed bug P2 (jedimt triage), fix recipe given, 0 PRs closing it. Open PR #2072 (xdu31, the issue author)
-       # is the "second site lands" moment (jedimt: check should go "with it or right after"). READ #2072's diff: it adds NO duplicate-endpoint
-       # check; its environment.go change is a comment rename (datahall-1 -> site-1) but it renames datahall -> site-N keys in shipped_test.go
-       # and environments/dsx.yaml, so a fix written now must be rebased onto it. Deliverable = comment asking xdu31 whether it goes into #2072;
-       # otherwise take it as a follow-up after #2072 merges. No claim comment exists on #2022.
+2022   # OURS 2026-11-11: PR #2282 (yuzhiquan) opened, closes it; comment posted on the issue. Applies cleanly on top of open PR #2072.
+       # Do not re-propose. Watch #2282 for review / `/ok to test`.
 1177   # NEEDS-RULING 2026-11-11: bullet 1 shipped (#1602). Part A "reject create when provider absent" changes API behaviour (201 -> error);
        # triager asked Product to rule and to narrow the title. Part B (CRD watch) is size M. Do not code before a Product answer.
 # Maintainer batches -- one owner's plan, do not screen as free issues without reading the owner's note.
